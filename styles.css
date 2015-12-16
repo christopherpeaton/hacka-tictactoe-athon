@@ -1,0 +1,328 @@
+body {
+    overflow: hidden;
+    perspective: 1000px;
+}
+/* Game Backdrop */
+.background-three, .background-five {
+    width: 100vw;
+    height: 100vh;
+}
+.row {
+    transition: 1s;
+}
+/* 3x3 Board */
+.background-three {
+    background: url('images/t3-bg3.jpg') no-repeat;
+    background-size: 100% 100%;
+}
+.board-one {
+    position: absolute;
+    top: 22%;
+    width: 100%;
+    height: 50%;
+}
+.board-one>.row {
+    height: 33%;
+    margin: 1% 20%;
+    text-align: center;
+}
+.board-one .target {
+    position: relative;
+    display: inline-block;
+    width: 31%;
+    height: 85%;
+    margin: 1%;
+}
+
+/* 5x5 Board */
+.background-five {
+    background: url('images/t3-bg5.png') no-repeat;
+    background-size: 100% 100%;
+}
+.board-two {
+    position: absolute;
+    top: 23%;
+    width: 100%;
+    height: 51%;
+}
+.board-two>.row {
+    height: 20%;
+    margin: 0 10%;
+    text-align: center;
+}
+.board-two .target {
+    position: relative;
+    display: inline-block;
+    height: 95%;
+    margin: 0 1.5%;
+}
+
+
+/*Using this class to hide elements. */
+.hidden {
+    display: none;
+}
+
+/* Player Barrels*/
+/* positioned absolute to avoid any troubles switching board size. */
+.left{
+
+    position: absolute;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+}
+.playerIndicator img{
+    width: 180px;
+}
+
+/* Ducks */
+.target img{
+    max-width: 100%;
+    max-height: 100%;
+    /*position: relative;*/
+    /*bottom: -50%;*/
+}
+
+/*  X animation */
+#container1 {
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10%;
+    position: relative;
+}
+
+.one1 {
+    border-right: 8px solid #3B2750;
+    width: 50%;
+    height: 50%;
+    -webkit-transform: skew(0deg) scale(0);
+    position: absolute;
+    transition: 2s;
+    top: 39%;
+    left: 0;
+
+}
+
+.one2 {
+    border-right: 7px solid #3B2750;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    -webkit-transform: skew(0deg) scale(0);
+    transition: 2s;
+    top: 39%;
+    left: 3%;
+
+}
+
+.expand2{
+    -webkit-transform: skew(45deg) scale(1);
+}
+
+.expand1 {
+    -webkit-transform: skew(-45deg) scale(1);
+}
+
+/* O animation */
+#container2 {
+    z-index: 200;
+    display: block;
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+
+}
+
+.two {
+    position: absolute;
+    border: 7px solid red;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transition: 2s;
+    -webkit-transform: scale(0) rotateY(0deg);
+    left: 50%;
+    transform: translate(-50%, 50%) !important;
+}
+.background-five .two{
+    height: 50%;
+    width: 85%;
+}
+
+.expandCircle {
+    -webkit-transform: scale(1) rotateY(360deg);
+}
+
+/* Gun/Pointer */
+#pointer-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 8%;
+    top: 0;
+    -webkit-transform: rotateX(50deg);
+    -webkit-transform-origin: 50% 100%;
+}
+#pointer-wrap img {
+    width: 100%;
+    height: 165%;
+    position: absolute;
+    top: -6%;
+}
+/*container for gun image*/
+#perspective {
+    height: 30%;
+    width: 33%;
+    -webkit-perspective: 900px;
+    position: absolute;
+    top: 80%;
+    left: 31%;
+}
+
+/* Game Select & Reset Buttons */
+
+button{
+
+    background-color: #AC7F94;
+    border: 2px solid #000000;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0 10vw;
+}
+.visible-xs{
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+}
+.visible-xs button:hover{
+    color: #fc0302;
+}
+
+/*add this class for resetting the cards, setTimeout function to remove class*/
+.reset-row {
+    transform: rotateX(92deg);
+    transform-origin: 50% 100%;
+    backface-visibility: hidden;
+}
+
+/* Winner Modal */
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    margin-top: 100px;
+    font-size: 2.5em;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px){
+
+    /* Game Board */
+    .board-one {
+        top: 21%;
+    }
+    .row{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Player Barrels*/
+    .playerIndicator img{
+        width: 250px;
+    }
+
+
+    /* Game Selector & Reset Sign */
+    #game_sign{
+        position: absolute;
+        bottom: -6%;
+        width: 275px;
+    }
+    .sign {
+        width: 250px;
+    }
+    button{
+        margin: 0;
+        background-color: transparent;
+        border: none;
+        font-size: 200%;
+        text-decoration: underline;
+        color: black;
+    }
+    #game_sign button:hover{
+        color: #fc0302
+    }
+    .switch {
+        position: absolute;
+        top: 29%;
+        left: 20%;
+        transform: rotateY(30deg);
+    }
+    .reset{
+        font-size: 70%;
+        background-color: transparent;
+        font-weight: bold;
+    }
+    #game_sign>.reset {
+        position: absolute;
+        top: 23%;
+        left: 50%;
+        transform: rotateY(30deg);
+        font-size: 200%;
+        border: none;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px){
+    /* Game Board */
+    .board-two .target {
+        margin: 0 4%;
+    }
+
+    /* Player Barrels*/
+    .playerIndicator img{
+        width: 300px;
+    }
+
+    /* Game Level & Reset */
+    .sign{
+        width: 280px;
+    }
+    .switch {
+        left: 25%;
+        font-size: 220%;
+
+    }
+    #game_sign>.reset {
+        left: 55%;
+        font-size: 220%;
+    }
+
+    /* Gun Image */
+    #pointer-wrap img {
+        width: 80%;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px){
+    /* Game Board */
+    .board-one {
+        top: 20%;
+    }
+    /* Player Barrels */
+    .playerIndicator img {
+        width: 340px;
+    }
+    /* Gun Image */
+    #pointer-wrap img {
+        width: 60%;
+        top: -11%;
+    }
+}
